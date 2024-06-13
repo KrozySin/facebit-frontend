@@ -44,6 +44,15 @@ code {
   min-height: 100vh;
 }
 
+.logo-div {
+  width: 100%;
+  text-align: center;
+}
+.auth-logo {
+  width: 80px;
+  margin: auto;
+}
+
 .form-label {
   color: white;
 }

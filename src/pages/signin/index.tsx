@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from 'react-hook-form'
-import { Button, Form, FormGroup } from "react-bootstrap";
+import { Button, Form, FormGroup, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
-  const { register, handleSubmit, reset, formState } = useForm();
+  const { handleSubmit } = useForm();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -39,7 +39,13 @@ const SignIn = () => {
   return (
     <div className="d-flex justify-content-center align-items-center w-100 auth-panel">
       <div className="sign-up">
-        <h1 className="__auth-title">Sign In</h1>
+        <div className="logo-div">
+          <Image src="./Logo.svg" className="auth-logo" alt="Logo"/>
+        </div>
+      
+        <h2 className="__auth-title">
+          Sign In
+        </h2>
         
         <hr />
 

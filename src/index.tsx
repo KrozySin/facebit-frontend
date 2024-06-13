@@ -13,6 +13,7 @@ import SignIn from "./pages/signin";
 import SignUp from "./pages/signup";
 import Menu from "./layout/menu";
 import { AuthProvider } from "./providers/AuthProvider";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

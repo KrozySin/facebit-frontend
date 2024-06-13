@@ -29,7 +29,7 @@ const Menu = () => {
   return (
     <div className="menu">
       <div className="logo mb-10">
-        <img src="/logo.svg" className="logo" alt="" />
+        <img src="./Logo.svg" className="logo" alt="" />
         <label>TESTA BT</label>
       </div>
       {menus.map((item, index) => (
