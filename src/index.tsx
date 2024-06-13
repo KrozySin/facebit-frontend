@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./assets/css/common.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -14,6 +15,7 @@ import SignUp from "./pages/signup";
 import Menu from "./layout/menu";
 import { AuthProvider } from "./providers/AuthProvider";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Deposit from "./pages/deposit";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -27,6 +29,10 @@ const routers = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
+  },
+  {
+    path: "/deposit",
+    element: <Deposit />,
   },
   {
     path: "/sign-in",
