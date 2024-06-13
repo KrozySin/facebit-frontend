@@ -1,6 +1,7 @@
 export interface GameInfo {
   id?: number;
   bust?: number;
+  sysProfit?: number;
   status?: string;
 }
 

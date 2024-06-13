@@ -3,6 +3,7 @@ import { WebsocketContext } from "../context/WebsocketContext";
 import io, { Socket } from "socket.io-client";
 import { GameInfo } from "../const/interfaces";
 import { useGameHistory } from "../hook/useGameHistory";
+import { convertToRate } from "../const/utils";
 
 export const WebSocketProvider: React.FC<PropsWithChildren> = ({
   children,
@@ -66,7 +67,9 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
           setRate(msg.data.rate);
 
           if (chartComponent.current && msg.data.rate) {
-            chartComponent.current.innerHTML = `${msg.data.rate.toFixed(2)}x`;
+            chartComponent.current.innerHTML = `${convertToRate(
+              msg.data.rate
+            ).toFixed(2)}x`;
           }
         }
 
@@ -115,13 +118,13 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
     currentRate.current.bust =
       1 +
       Math.pow(
-        (now - timer.current) * 0.01,
-        Math.max((now - timer.current) / 100 + 1, 2)
+        (now - timer.current - 1) * 0.01,
+        Math.max((now - timer.current - 1) / 100 + 1, 2)
       );
     if (chartComponent.current) {
-      chartComponent.current.innerHTML = `${currentRate.current.bust.toFixed(
-        2
-      )}x`;
+      chartComponent.current.innerHTML = `${convertToRate(
+        currentRate.current.bust
+      ).toFixed(2)}x`;
     }
   };
 

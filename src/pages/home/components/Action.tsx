@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useWebsocket } from "../../../hook/useWebsocket";
+import { useGameHistory } from "../../../hook/useGameHistory";
+import { useAuth } from "../../../hook/useAuth";
 
 interface Props {
   className?: string;
 }
 
 const Action = ({ className }: Props) => {
+  const { gameInfo } = useWebsocket();
+  const { betList } = useGameHistory();
+  const { user } = useAuth();
   const { doBet } = useWebsocket();
   const [bust, setBust] = useState("");
   const [amount, setAmount] = useState("");
+
+  const myBet = useMemo(() => {
+    return betList.find((x) => x.user === user.userId);
+  }, [betList, user]);
 
   const onBet = () => {
     const amountNm = parseFloat(amount);
@@ -36,17 +45,30 @@ const Action = ({ className }: Props) => {
         value={bust}
         onChange={(e) => setBust(e.target.value)}
       />
-      <Button
-        variant="primary"
-        className="w-100 mt-4 mb-4"
-        size="lg"
-        style={{
-          height: "80px",
-        }}
-        onClick={onBet}
-      >
-        Bet Now
-      </Button>
+      {myBet ? (
+        <Button
+          variant="primary"
+          className="w-100 mt-4 mb-4 button-30"
+          size="lg"
+          style={{
+            height: "80px",
+          }}
+        >
+          cash {(myBet.amount * (gameInfo.bust ?? 1)).toFixed(2)}
+        </Button>
+      ) : (
+        <Button
+          variant="primary"
+          className="w-100 mt-4 mb-4 button-29"
+          size="lg"
+          style={{
+            height: "80px",
+          }}
+          onClick={onBet}
+        >
+          Bet Now
+        </Button>
+      )}
     </div>
   );
 };

@@ -21,11 +21,16 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
     setHistory(result.data.list);
   };
 
+  const getInitBetHistory = async () => {
+    const result = await axios.get("http://192.168.6.244:4000/user/history");
+    setBetList(result.data.sort((a: any, b: any) => b.amount - a.amount));
+  };
+
   const addNewHistory = (data: GameInfo) => {
     if (historyRef.current.find((x) => x.id === data.id)) {
       return;
     }
-    setHistory([data, ...historyRef.current.slice(0, 49)]);
+    getInitGameHistory();
   };
 
   const addNewBet = (data: BetInfo) => {
@@ -43,6 +48,7 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
 
   useEffect(() => {
     getInitGameHistory();
+    getInitBetHistory();
     //eslint-disable-next-line
   }, []);
 

@@ -23,8 +23,8 @@ const History = ({ className }: Props) => {
             {history.map((data, index) => (
               <tr key={`history_${index}`}>
                 <td>#{data.id}</td>
-                <td>{data.bust?.toFixed(2)}</td>
-                <td>0</td>
+                <td>{(Math.floor(data.bust! * 100) / 100).toFixed(2)}</td>
+                <td>{data.sysProfit?.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
