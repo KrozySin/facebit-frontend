@@ -12,7 +12,12 @@ const SignUp = () => {
   const { handleSubmit } = useForm();
 
   const doSignUp = async () => {
-    if(username.length === 0 || password.length === 0 || email.length === 0 || passwordConfirm.length === 0) {
+    if (
+      username.length === 0 ||
+      password.length === 0 ||
+      email.length === 0 ||
+      passwordConfirm.length === 0
+    ) {
       setValidated(true);
       return;
     }
@@ -43,9 +48,15 @@ const SignUp = () => {
 
         <hr />
 
-        <Form noValidate validated={validated} onSubmit={handleSubmit(doSignUp)}>
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleSubmit(doSignUp)}
+        >
           <FormGroup>
-            <Form.Label htmlFor="su_username" className="form-label">User Name</Form.Label>
+            <Form.Label htmlFor="su_username" className="form-label">
+              User Name
+            </Form.Label>
             <Form.Control
               required
               type="text"
@@ -55,11 +66,15 @@ const SignUp = () => {
               className="form-input"
               placeholder="Jackson"
             />
-            <Form.Control.Feedback type="invalid">Please fill User Name.</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please fill User Name.
+            </Form.Control.Feedback>
           </FormGroup>
 
           <FormGroup>
-            <Form.Label htmlFor="su_email" className="mt-4">Email Address</Form.Label>
+            <Form.Label htmlFor="su_email" className="mt-4">
+              Email Address
+            </Form.Label>
             <Form.Control
               required
               type="email"
@@ -68,44 +83,54 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="face@bit.com"
             />
-            <Form.Control.Feedback type="invalid">Please fill Email Address.</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please fill Email Address.
+            </Form.Control.Feedback>
           </FormGroup>
 
-        <FormGroup>
-          <Form.Label htmlFor="su_pwd" className="mt-4">Password</Form.Label>
-          <Form.Control
-            required
-            type="password"
-            id="su_pwd"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="******"
-          />
-          <Form.Control.Feedback type="invalid">Please fill Password.</Form.Control.Feedback>
-          {/* <Form.Control.Feedback type="invalid">Don't match password and confirm.</Form.Control.Feedback> */}
-        </FormGroup>
+          <FormGroup>
+            <Form.Label htmlFor="su_pwd" className="mt-4">
+              Password
+            </Form.Label>
+            <Form.Control
+              required
+              type="password"
+              id="su_pwd"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="******"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please fill Password.
+            </Form.Control.Feedback>
+            {/* <Form.Control.Feedback type="invalid">Don't match password and confirm.</Form.Control.Feedback> */}
+          </FormGroup>
 
-        <FormGroup>
-          <Form.Label htmlFor="su_pwd_confirm" className="mt-4">Password Confirm</Form.Label>
-          <Form.Control
-            required
-            type="password"
-            id="su_pwd_confirm"
-            value={passwordConfirm}
-            onChange={(e) => setPasswordConfirm(e.target.value)}
-            placeholder="******"
-          />
-          <Form.Control.Feedback type="invalid">Please fill Password Confirm.</Form.Control.Feedback>
-        </FormGroup>
+          <FormGroup>
+            <Form.Label htmlFor="su_pwd_confirm" className="mt-4">
+              Password Confirm
+            </Form.Label>
+            <Form.Control
+              required
+              type="password"
+              id="su_pwd_confirm"
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+              placeholder="******"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please fill Password Confirm.
+            </Form.Control.Feedback>
+          </FormGroup>
 
-        <Button
-          variant="primary"
-          className="w-100 mt-4 mb-4 auth-btn"
-          size="lg"
-          type="submit"
-        >
-          Sign Up
-        </Button>
+          <Button
+            variant="primary"
+            className="w-100 mt-4 mb-4 auth-btn"
+            size="lg"
+            type="submit"
+          >
+            Sign Up
+          </Button>
         </Form>
       </div>
     </div>
