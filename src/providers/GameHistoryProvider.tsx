@@ -2,23 +2,43 @@ import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { GameHistoryContext } from "../context/GameHistoryContext";
 import { BetInfo, GameInfo } from "../const/interfaces";
 import axios from "axios";
+import { useAuth } from "../hook/useAuth";
 
 export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
+  const { isLoggedIn, updateBalance } = useAuth();
   const [history, setHistory] = useState<GameInfo[]>([]);
+  const [userHistory, setUserHistory] = useState<BetInfo[]>([]);
   const historyRef = useRef<GameInfo[]>([]);
 
   const [betList, setBetList] = useState<BetInfo[]>([]);
   const betListRef = useRef<BetInfo[]>([]);
 
   const getInitGameHistory = async () => {
-    const result = await axios.get("http://192.168.6.244:4000/rate", {
-      params: {
-        count: 50,
-      },
-    });
-    setHistory(result.data.list);
+    axios
+      .get("http://192.168.6.244:4000/rate", {
+        params: {
+          count: 50,
+        },
+      })
+      .then((result) => {
+        setHistory(result.data.list);
+      });
+    const token = window.localStorage.getItem("token");
+
+    if (token) {
+      axios
+        .get("http://192.168.6.244:4000/user/orders", {
+          params: {
+            token: window.localStorage.getItem("token"),
+            count: 50,
+          },
+        })
+        .then((result) => {
+          setUserHistory(result.data);
+        });
+    }
   };
 
   const getInitBetHistory = async () => {
@@ -27,10 +47,8 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
   };
 
   const addNewHistory = (data: GameInfo) => {
-    if (historyRef.current.find((x) => x.id === data.id)) {
-      return;
-    }
     getInitGameHistory();
+    updateBalance();
   };
 
   const addNewBet = (data: BetInfo) => {
@@ -50,7 +68,7 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
     getInitGameHistory();
     getInitBetHistory();
     //eslint-disable-next-line
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     historyRef.current = history;
@@ -62,7 +80,14 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
 
   return (
     <GameHistoryContext.Provider
-      value={{ history, addNewHistory, betList, addNewBet, clearBet }}
+      value={{
+        history,
+        addNewHistory,
+        betList,
+        addNewBet,
+        clearBet,
+        userHistory,
+      }}
     >
       {children}
     </GameHistoryContext.Provider>

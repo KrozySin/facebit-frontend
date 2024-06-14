@@ -5,6 +5,7 @@ import { MdLogout, MdLogin } from "react-icons/md";
 import { useAuth } from "../hook/useAuth";
 
 const Menu = () => {
+  const { balance } = useAuth();
   const iconSize = 30;
   const menus = [
     {
@@ -48,7 +49,7 @@ const Menu = () => {
             <HiOutlineUserCircle size={iconSize * 1.7} color="#fff" />
             <div className="user-brief">
               <label> {user.userId} </label>
-              <span> {user.balance.toFixed(5)} </span>
+              <span> {balance.toFixed(5)} </span>
             </div>
           </a>
         </>

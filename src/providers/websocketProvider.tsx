@@ -12,6 +12,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
   const token = useRef<string | null>(null);
   const chartComponent = useRef<HTMLDivElement>(null);
   const { addNewHistory, addNewBet, clearBet } = useGameHistory();
+  const [status, setStatus] = useState("ongame");
 
   // rate live value
   const currentRate = useRef<GameInfo>({});
@@ -49,6 +50,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
             startLive();
           }
           setRate(msg.data.rate);
+          setStatus("ongame");
         }
 
         if (msg.msgType === "ended") {
@@ -63,6 +65,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
             bust: msg.data.rate,
             status: "ended",
           });
+          setStatus("ended");
 
           setRate(msg.data.rate);
 
@@ -112,9 +115,11 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
         (95 - now + timer.current) /
         10
       ).toFixed(1)} seconds left`;
+      currentRate.current.status = "ended";
     }
     if (isLive.current === false) return;
 
+    currentRate.current.status = "ongame";
     currentRate.current.bust =
       1 +
       Math.pow(
@@ -159,6 +164,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
         reconnect,
         doBet,
         rate,
+        status,
       }}
     >
       {children}

@@ -6,7 +6,7 @@ interface Props {
 }
 
 const History = ({ className }: Props) => {
-  const { history } = useGameHistory();
+  const { history, userHistory } = useGameHistory();
   return (
     <Panel className={`${className ?? ""} dark-panel pw-15`}>
       <SimpleBar className="sticky-table height-available">
@@ -20,13 +20,22 @@ const History = ({ className }: Props) => {
             </tr>
           </thead>
           <tbody>
-            {history.map((data, index) => (
-              <tr key={`history_${index}`}>
-                <td>#{data.id}</td>
-                <td>{(Math.floor(data.bust! * 100) / 100).toFixed(2)}</td>
-                <td>{data.sysProfit?.toFixed(2)}</td>
-              </tr>
-            ))}
+            {history.map((data, index) => {
+              const item = userHistory.find((x) => x.gameId === data.id);
+              return (
+                <tr key={`history_${index}`}>
+                  <td>#{data.id}</td>
+                  <td>{(Math.floor(data.bust! * 100) / 100).toFixed(2)}</td>
+                  <td>
+                    {item && data.bust
+                      ? data.bust >= item.bust
+                        ? ((item.bust - 1) * item.amount).toFixed(2)
+                        : "Busted"
+                      : "-"}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </SimpleBar>

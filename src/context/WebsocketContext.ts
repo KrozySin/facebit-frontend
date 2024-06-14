@@ -7,6 +7,7 @@ export interface WebsocketContextValue {
   reconnect: () => void;
   doBet: (amount: number, bust: number) => void;
   rate: number;
+  status: string;
 }
 
 export const WebsocketContext = createContext<null | WebsocketContextValue>(

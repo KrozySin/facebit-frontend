@@ -5,6 +5,7 @@ export interface GameHistoryContextValue {
   history: GameInfo[];
   addNewHistory: (data: GameInfo) => void;
   betList: BetInfo[];
+  userHistory: BetInfo[];
   addNewBet: (data: BetInfo) => void;
   clearBet: () => void;
 }

@@ -6,6 +6,7 @@ export interface GameInfo {
 }
 
 export interface BetInfo {
+  gameId?: number;
   user: string;
   bust: number;
   amount: number;

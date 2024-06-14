@@ -45,7 +45,7 @@ const Action = ({ className }: Props) => {
         value={bust}
         onChange={(e) => setBust(e.target.value)}
       />
-      {myBet ? (
+      {myBet && (!gameInfo.bust || gameInfo.bust < myBet.bust) ? (
         <Button
           variant="primary"
           className="w-100 mt-4 mb-4 button-30"
@@ -54,7 +54,7 @@ const Action = ({ className }: Props) => {
             height: "80px",
           }}
         >
-          cash {(myBet.amount * (gameInfo.bust ?? 1)).toFixed(2)}
+          cash {(myBet.amount * (gameInfo.bust ?? 1.01)).toFixed(2)}
         </Button>
       ) : (
         <Button
