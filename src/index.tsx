@@ -16,6 +16,7 @@ import Menu from "./layout/menu";
 import { AuthProvider } from "./providers/AuthProvider";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Deposit from "./pages/deposit";
+import Withdraw from "./pages/withdraw";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -33,6 +34,10 @@ const routers = createBrowserRouter([
   {
     path: "/deposit",
     element: <Deposit />,
+  },
+  {
+    path: "/withdraw",
+    element: <Withdraw />,
   },
   {
     path: "/sign-in",

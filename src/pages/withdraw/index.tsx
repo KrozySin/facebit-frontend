@@ -1,11 +1,12 @@
 import { Badge, Button, Card, Col, Container, Form, InputGroup, Row, Table, Toast, ToastContainer } from "react-bootstrap";
-import { PiMoneyBold } from "react-icons/pi";
 import { FaCopy } from "react-icons/fa";
-import QRCode from "react-qr-code";
+import { LiaBtc } from "react-icons/lia";
+import { BiMoneyWithdraw } from "react-icons/bi";
 import { useState } from "react";
 import PaginationCompoent from "../../components/pagination";
 
-const Deposit = () => {
+
+const Withdraw = () => {
   const [showToast, setToast] = useState(false);
   const [depositAddress, setDepositAddress] = useState("0xf0E4163f0811A1427829D0172F5241A03FaA987d");
 
@@ -15,7 +16,7 @@ const Deposit = () => {
   }
   return (
     <Container>
-        <h1>Deposit</h1>
+        <h1>Withdraw</h1>
         <hr className="page-underline"/>
 
         <Card>
@@ -30,11 +31,11 @@ const Deposit = () => {
                   <Card.Text className="font-weight-bold">1 minutes</Card.Text>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <Card.Text>Min. Deposit:</Card.Text>
+                  <Card.Text>Min. Withdraw:</Card.Text>
                   <Card.Text className="font-weight-bold">0.00000001 BTC</Card.Text>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <Card.Text>Max. Deposit:</Card.Text>
+                  <Card.Text>Max. Withdraw:</Card.Text>
                   <Card.Text className="font-weight-bold">No limit</Card.Text>
                 </div>
                 <div className="d-flex justify-content-between">
@@ -47,19 +48,15 @@ const Deposit = () => {
             <Row>
               <Col xs={4}></Col>
               <Col xs={4}>
-                <div className="qr-code-panel">
-                  <QRCode
-                    size={256}
-                    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                    value={depositAddress}
-                    viewBox={`0 0 256 256`}
-                  />
-                </div>
+                <InputGroup className="mb-2">
+                  <Form.Control type="number" aria-label="Deposit Address" placeholder="Amount" />
+                  <InputGroup.Text><LiaBtc /></InputGroup.Text>
+                </InputGroup>
                 <InputGroup>
                     <Form.Control aria-label="Deposit Address" value={depositAddress} disabled/>
                     <InputGroup.Text><FaCopy onClick={copyToClipboard}/></InputGroup.Text>
                   </InputGroup>
-                <Button variant="primary" className="icon-btn w-100 mt-2"><PiMoneyBold size={18}/> Deposit</Button>
+                <Button variant="danger" className="icon-btn w-100 mt-2"><BiMoneyWithdraw size={18}/> Withdraw</Button>
               </Col>
               <Col xs={4}></Col>
             </Row>
@@ -93,7 +90,7 @@ const Deposit = () => {
                     <td>3</td>
                     <td>1.223 BTC</td>
                     <td>04/01/2024</td>
-                    <td><Badge bg="primary">Success</Badge></td>
+                    <td><Badge bg="secondary">Pending</Badge></td>
                   </tr>
                   <tr>
                     <td>4</td>
@@ -124,4 +121,4 @@ const Deposit = () => {
   );
 };
 
-export default Deposit;
+export default Withdraw;
