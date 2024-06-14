@@ -37,7 +37,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
   const connect = async () => {
     if (socket.current === null) {
       token.current = window.localStorage.getItem("token");
-      socket.current = io("http://192.168.6.244:8080", {
+      socket.current = io(process.env.REACT_APP_WS_URL ?? "", {
         query: {
           token: token.current,
         },
