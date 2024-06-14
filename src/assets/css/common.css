@@ -1,42 +1,45 @@
 .container {
-    padding: 40px 20px;
+  padding: 40px 20px;
 }
 .container h1 {
-    color: white;
-    margin-bottom: 20px;
+  color: white;
+  margin-bottom: 20px;
 }
 .container h2 {
-    margin-top: 20px;
-    margin-bottom: 12px;
+  margin-top: 20px;
+  margin-bottom: 12px;
 }
 .card {
-    background-color: white!important;
-    padding: 20px;
+  background-color: white !important;
+  padding: 20px;
 }
 .font-weight-bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 .icon-btn {
-    align-items: center;
-    display: flex!important;
-    justify-content: center;
-    margin: auto;
-    gap: 4px;
+  align-items: center;
+  display: flex !important;
+  justify-content: center;
+  margin: auto;
+  gap: 4px;
 }
 .qr-code-panel {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #666;
-    margin: 20px auto;
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  margin: 20px auto;
 }
 svg {
-    cursor: pointer;
+  cursor: pointer;
 }
 .page-underline {
-    border: 1px solid white;
+  border: 1px solid white;
 }
 
-table th, table td {
-    color: #333333!important;
+.deposit-table {
+  th,
+  td {
+    color: #333333 !important;
+  }
 }

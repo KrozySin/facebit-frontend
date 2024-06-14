@@ -9,7 +9,7 @@ const History = ({ className }: Props) => {
   const { history, userHistory } = useGameHistory();
   return (
     <Panel className={`${className ?? ""} dark-panel pw-15`}>
-      <SimpleBar className="sticky-table height-available">
+      <SimpleBar className="sticky-table height-available table-color-white">
         <table>
           <thead>
             <div className="bk-table-header" />

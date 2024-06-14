@@ -23,13 +23,13 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const token = window.localStorage.getItem("token");
     if (token) {
       axios
-        .get("http://192.168.6.244:4000/user/balance", {
+        .get(`${process.env.REACT_APP_API_URL}/user/balance`, {
           params: {
             token,
           },
         })
         .then((result) => {
-          setUserBalance(result.data);
+          if (result.data !== false) setUserBalance(result.data);
         });
     }
   };

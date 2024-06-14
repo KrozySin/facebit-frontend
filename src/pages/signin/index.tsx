@@ -18,7 +18,7 @@ const SignIn = () => {
     }
 
     axios
-      .post("http://192.168.6.244:4000/user/login", {
+      .post(`${process.env.REACT_APP_API_URL}/user/login`, {
         username,
         password,
       })

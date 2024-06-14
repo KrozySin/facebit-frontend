@@ -27,7 +27,7 @@ const SignUp = () => {
       return;
     }
 
-    axios.post("http://192.168.6.244:4000/user/register", {
+    axios.post(`${process.env.REACT_APP_API_URL}/user/register`, {
       username,
       password,
       email,
@@ -39,9 +39,8 @@ const SignUp = () => {
   return (
     <div className="d-flex justify-content-center align-items-center w-100 auth-panel">
       <div className="sign-up">
-
         <div className="logo-div">
-          <Image src="./Logo.svg" className="auth-logo" alt="Logo"/>
+          <Image src="./Logo.svg" className="auth-logo" alt="Logo" />
         </div>
 
         <h2 className="__auth-title">Sign Up</h2>

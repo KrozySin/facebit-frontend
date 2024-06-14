@@ -17,7 +17,7 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
 
   const getInitGameHistory = async () => {
     axios
-      .get("http://192.168.6.244:4000/rate", {
+      .get(`${process.env.REACT_APP_API_URL}/rate`, {
         params: {
           count: 50,
         },
@@ -29,7 +29,7 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
 
     if (token) {
       axios
-        .get("http://192.168.6.244:4000/user/orders", {
+        .get(`${process.env.REACT_APP_API_URL}/user/orders`, {
           params: {
             token: window.localStorage.getItem("token"),
             count: 50,
@@ -42,7 +42,9 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
   };
 
   const getInitBetHistory = async () => {
-    const result = await axios.get("http://192.168.6.244:4000/user/history");
+    const result = await axios.get(
+      `${process.env.REACT_APP_API_URL}/user/history`
+    );
     setBetList(result.data.sort((a: any, b: any) => b.amount - a.amount));
   };
 
