@@ -8,9 +8,9 @@ interface Props {
 
 const Chart = ({ className }: Props) => {
   const { status, chartComponent } = useWebsocket();
-  const [launched, setLaunched] = useState(false);
-  const [cssLaunch, setCssLaunch] = useState("");
-  const [cssBg, setCssBg] = useState("");
+  const [launched, setLaunched] = useState(true);
+  const [cssLaunch, setCssLaunch] = useState("rocket-flying rocket-flying-eff");
+  const [cssBg, setCssBg] = useState("rocket-prepare");
   const star = () => {
     let count = 30;
     let box = document.querySelector(".box");

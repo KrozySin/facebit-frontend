@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./assets/css/main.css";
 import "./assets/css/common.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -14,7 +14,7 @@ import SignIn from "./pages/signin";
 import SignUp from "./pages/signup";
 import Menu from "./layout/menu";
 import { AuthProvider } from "./providers/AuthProvider";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Deposit from "./pages/deposit";
 import Withdraw from "./pages/withdraw";
 

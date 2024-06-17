@@ -36,7 +36,9 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
           },
         })
         .then((result) => {
-          setUserHistory(result.data);
+          if (!result.data === false) {
+            setUserHistory(result.data);
+          }
         });
     }
   };
