@@ -21,6 +21,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
   const currentRate = useRef<GameInfo>({});
   const timer = useRef<number>(0);
   const isLive = useRef<boolean>(false);
+  const currentMe = useRef<any>({});
 
   const [rate, setRate] = useState(0);
 
@@ -29,6 +30,10 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
     isLive.current = false;
     currentRate.current = {};
   };
+
+  useEffect(() => {
+    currentMe.current = user;
+  }, [user]);
 
   const startLive = () => {
     console.log("new game started");
@@ -93,7 +98,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
             amount: msg.data.amount,
             bust: msg.data.bust,
           });
-          if (msg.data.user === user.userId) {
+          if (msg.data.user === currentMe.current.userId) {
             updateBalance();
           }
         }
