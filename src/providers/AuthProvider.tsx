@@ -30,6 +30,11 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
         })
         .then((result) => {
           if (result.data !== false) setUserBalance(result.data);
+          else {
+            window.localStorage.removeItem("token");
+            window.localStorage.removeItem("user");
+            setIsLoggedIn(false);
+          }
         });
     }
   };

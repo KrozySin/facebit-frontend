@@ -473,6 +473,50 @@ code {
   transform: translateY(2px);
 }
 
+.button-72 {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(
+    rgba(179, 132, 201, 0.84),
+    rgba(57, 31, 91, 0.84) 50%
+  );
+  border-radius: 42px;
+  border-width: 0 !important;
+  box-shadow: rgba(57, 31, 91, 0.24) 0 2px 2px,
+    rgba(179, 132, 201, 0.4) 0 8px 12px;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-family: Quicksand, sans-serif;
+  font-size: 12px !important;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  line-height: 16px;
+  margin: 0;
+  padding: 8px 12px !important;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: rgba(255, 255, 255, 0.4) 0 0 4px,
+    rgba(255, 255, 255, 0.2) 0 0 12px, rgba(57, 31, 91, 0.6) 1px 1px 4px,
+    rgba(57, 31, 91, 0.32) 4px 4px 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+}
+
+.button-72:hover {
+  background-image: linear-gradient(#b384c9, #391f5b 50%);
+}
+
+@media (min-width: 768px) {
+  .button-72 {
+    font-size: 21px;
+    padding: 18px 34px;
+  }
+}
+
 .box {
   overflow: hidden;
   position: relative;
@@ -597,4 +641,41 @@ code {
 
 .mw-action {
   min-height: 400px;
+}
+
+.sys-panel {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.balance-panel {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+  }
+  span {
+    font-family: "Calligraffitti", cursive;
+    font-weight: 700;
+    font-size: 3rem;
+    text-shadow: -3px 1px 4px #ced0d3;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #f9f1cc;
+    text-shadow: 1px 1px 0px #ffb650, 2px 2px 0px #ffd662, 3px 3px 0px #ff80bf,
+      4px 4px 0px #ef5097, 5px 5px 0px #6868ac, 6px 6px 0px #90b1e0;
+    margin-bottom: 24px;
+  }
+}
+
+.predict-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  label {
+    font-size: 16px;
+    color: #fff;
+  }
 }

@@ -5,6 +5,7 @@ import { GameInfo } from "../const/interfaces";
 import { useGameHistory } from "../hook/useGameHistory";
 import { convertToRate } from "../const/utils";
 import { toast } from "react-toastify";
+import { useAuth } from "../hook/useAuth";
 
 export const WebSocketProvider: React.FC<PropsWithChildren> = ({
   children,
@@ -13,6 +14,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
   const token = useRef<string | null>(null);
   const chartComponent = useRef<HTMLDivElement>(null);
   const { addNewHistory, addNewBet, clearBet } = useGameHistory();
+  const { user, updateBalance } = useAuth();
   const [status, setStatus] = useState("ongame");
 
   // rate live value
@@ -91,6 +93,9 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
             amount: msg.data.amount,
             bust: msg.data.bust,
           });
+          if (msg.data.user === user.userId) {
+            updateBalance();
+          }
         }
       });
     }
