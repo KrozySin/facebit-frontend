@@ -17,6 +17,8 @@ import { AuthProvider } from "./providers/AuthProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Deposit from "./pages/deposit";
 import Withdraw from "./pages/withdraw";
+import { ToastContainer, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -52,6 +54,20 @@ const routers = createBrowserRouter([
 root.render(
   <React.StrictMode>
     <div className="sys-bk" />
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      transition={Bounce}
+      stacked
+    />
     <AuthProvider>
       <GameHistoryProvider>
         <WebSocketProvider>

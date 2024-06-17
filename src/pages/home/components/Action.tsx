@@ -40,14 +40,18 @@ const Action = ({ className }: Props) => {
       <Panel className={`mw-action flex-column dark-panel`}>
         <Tabs defaultActiveKey="manual">
           <Tab eventKey="manual" title="Manual">
-            <Form.Label htmlFor="act_amount">Amount</Form.Label>
+            <Form.Label htmlFor="act_amount" className="mt-4">
+              Amount
+            </Form.Label>
             <Form.Control
               type="text"
               id="act_amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
             />
-            <Form.Label htmlFor="act_bust">Bust</Form.Label>
+            <Form.Label htmlFor="act_bust" className="mt-3">
+              Bust
+            </Form.Label>
             <Form.Control
               type="text"
               id="act_bust"

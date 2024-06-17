@@ -4,6 +4,7 @@ import io, { Socket } from "socket.io-client";
 import { GameInfo } from "../const/interfaces";
 import { useGameHistory } from "../hook/useGameHistory";
 import { convertToRate } from "../const/utils";
+import { toast } from "react-toastify";
 
 export const WebSocketProvider: React.FC<PropsWithChildren> = ({
   children,
@@ -77,6 +78,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
         }
 
         if (msg.msgType === "error") {
+          toast(`🦄 ${msg.data}`);
         }
 
         if (msg.msgType === "redirect") {
@@ -139,7 +141,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
       return;
     }
     if (!token.current) {
-      console.log("Not authorized!");
+      toast(`🦄 Please do the sign-in.`);
       return;
     }
 

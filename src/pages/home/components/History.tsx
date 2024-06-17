@@ -16,7 +16,7 @@ const History = ({ className }: Props) => {
             <tr>
               <th>Round #</th>
               <th>Busted</th>
-              <th>Staked / Shared</th>
+              <th>Profit / Lost</th>
             </tr>
           </thead>
           <tbody>
