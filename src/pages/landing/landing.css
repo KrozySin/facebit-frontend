@@ -1,0 +1,294 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: transparent;
+}
+
+header h1 {
+  margin: 0;
+  margin-bottom: 0 !important;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.landingImage {
+  background: url("../../../public/landing2.jpg") no-repeat center center/cover;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+#hero {
+  background: transparent;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  font-family: "Courier New";
+  font-weight: 700;
+}
+
+section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#hero .container {
+  position: relative;
+}
+
+#hero h2 {
+  font-size: 3em;
+  margin: 0 0 20px;
+}
+
+#hero p {
+  font-size: 1.5em;
+  margin: 0 0 20px;
+}
+
+#hero .cta-button {
+  background-color: #28a745;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+#hero .cta-button:hover {
+  background-color: #218838;
+}
+
+section {
+  position: relative;
+  padding: 60px 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: #f9f9f9;
+}
+
+.steps,
+.features-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.step,
+.feature {
+  max-width: 300px;
+  text-align: center;
+  margin: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.step h3,
+.feature h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#start-playing .cta-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+#start-playing .cta-button:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+.bk-clip {
+  position: absolute;
+  width: stretch;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    0.41deg,
+    #df86aa 19.48%,
+    rgba(46, 32, 255, 0.27) -13.62%,
+    #010314 267.11%
+  );
+  transform: translate(0, -70%);
+  filter: blur(225px);
+  border-radius: 0 0 50% 50%;
+}
+
+#how-it-works {
+  position: relative;
+}
+
+.slick-dots li button:before {
+  color: #f9f9f9;
+}
+
+/* Center the slide content */
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center content vertically */
+}
+
+/* Glass-like background for the slider panel */
+.slider-container {
+  background: rgba(
+    180,
+    180,
+    180,
+    0.2
+  ); /* Lighter semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect for glass background */
+  -webkit-backdrop-filter: blur(10px); /* Safari support for backdrop filter */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: white; /* White text inside the glass panel */
+}
+
+.slider-container .reason {
+  width: 100%;
+  color: white; /* Ensure text is white */
+  .image-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    img {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 10px;
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Style for the title outside the panel */
+#why-we-are h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #f9f9f9;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+}
+
+#Comparison h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+
+#Comparison .overlay {
+  background: rgba(0, 0, 0, 0.2); /* Lighter semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect for glass background */
+  -webkit-backdrop-filter: blur(10px); /* Safari support for backdrop filter */
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#Comparison .chart-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .chart {
+    width: 45%;
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .chart h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #f9f9f9;
+  }
+}
+
+.comparison-description {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #f9f9f9;
+}

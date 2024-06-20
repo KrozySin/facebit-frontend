@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/css/main.css";
 import "./assets/css/common.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/home";
@@ -19,6 +18,7 @@ import Deposit from "./pages/deposit";
 import Withdraw from "./pages/withdraw";
 import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Landing from "./pages/landing/landing";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -27,7 +27,7 @@ const root = ReactDOM.createRoot(
 const routers = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Landing />,
   },
   {
     path: "/home",

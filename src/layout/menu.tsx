@@ -26,8 +26,11 @@ const Menu = () => {
   ];
 
   const { isLoggedIn, logout, user } = useAuth();
+  console.log();
 
-  return (
+  return window.location.pathname === "/" ? (
+    <></>
+  ) : (
     <div className="menu">
       <div className="logo mb-10">
         <img src="./Logo.svg" className="logo" alt="" />
