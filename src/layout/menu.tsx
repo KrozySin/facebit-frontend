@@ -32,10 +32,10 @@ const Menu = () => {
     <></>
   ) : (
     <div className="menu">
-      <div className="logo mb-10">
+      <a className="logo mb-10 text-decoration-none" href="/">
         <img src="./Logo.svg" className="logo" alt="" />
         <label>TESTA BT</label>
-      </div>
+      </a>
       {menus.map((item, index) => (
         <a href={item.url} className="menu-item" key={`menu_${index}`}>
           {item.icon}

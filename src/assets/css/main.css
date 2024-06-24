@@ -365,6 +365,40 @@ code {
   }
 }
 
+.logic-table {
+  width: 100%;
+  max-height: 250px;
+
+  thead th {
+    position: sticky;
+    top: -1px;
+    z-index: 15;
+    background-color: #1c142b;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th,
+  td {
+    padding: 4px 10px;
+    border: 2px solid #222;
+    color: #eee;
+
+    button {
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+      padding: none !important;
+    }
+  }
+  th {
+    border: 2px solid #222;
+    height: 70px;
+  }
+}
+
 .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
   background-color: #666;
 }
@@ -456,6 +490,10 @@ code {
   font-size: 24px !important;
   font-family: "Courier New" !important;
   font-weight: 700 !important;
+}
+
+.button-30.small {
+  font-size: 14px !important;
 }
 
 .button-30:focus {

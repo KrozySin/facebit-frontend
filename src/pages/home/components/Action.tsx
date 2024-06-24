@@ -6,6 +6,7 @@ import { useGameHistory } from "../../../hook/useGameHistory";
 import { useAuth } from "../../../hook/useAuth";
 import Panel from "../../../layout/panel";
 import { useNavigate } from "react-router-dom";
+import Auto from "./Auto";
 
 interface Props {
   className?: string;
@@ -86,7 +87,9 @@ const Action = ({ className }: Props) => {
                 </Button>
               )}
             </Tab>
-            <Tab eventKey="auto" title="Auto"></Tab>
+            <Tab eventKey="auto" title="Auto">
+              <Auto />
+            </Tab>
           </Tabs>
         </Panel>
       ) : (

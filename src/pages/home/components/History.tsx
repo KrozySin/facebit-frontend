@@ -25,7 +25,13 @@ const History = ({ className }: Props) => {
               return (
                 <tr key={`history_${index}`}>
                   <td>#{data.id}</td>
-                  <td>{(Math.floor(data.bust! * 100) / 100).toFixed(2)}</td>
+                  <td
+                    style={{
+                      color: data.bust! >= 1.98 ? "#1afb80" : "#fb1a40",
+                    }}
+                  >
+                    {(Math.floor(data.bust! * 100) / 100).toFixed(2)}
+                  </td>
                   <td>
                     {item && data.bust
                       ? data.bust >= item.bust
