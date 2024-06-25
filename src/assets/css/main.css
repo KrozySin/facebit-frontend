@@ -381,16 +381,21 @@ code {
     width: 100%;
   }
   th,
+  tr {
+    border: 1px solid #ffffff50;
+  }
   td {
     padding: 4px 10px;
-    border: 2px solid #222;
+
+    border: 0px;
     color: #eee;
 
     button {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
       font-size: 10px;
-      padding: none !important;
+      padding: 0 !important;
+      float: right;
     }
   }
   th {
