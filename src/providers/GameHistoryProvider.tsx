@@ -16,30 +16,27 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
   const betListRef = useRef<BetInfo[]>([]);
 
   const getInitGameHistory = async () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/rate`, {
-        params: {
-          count: 50,
-        },
-      })
-      .then((result) => {
-        setHistory(result.data.list);
-      });
+    const result = await axios.get(`${process.env.REACT_APP_API_URL}/rate`, {
+      params: {
+        count: 50,
+      },
+    });
+    setHistory(result.data.list);
     const token = window.localStorage.getItem("token");
 
     if (token) {
-      axios
-        .get(`${process.env.REACT_APP_API_URL}/user/orders`, {
+      const userResult = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/orders`,
+        {
           params: {
             token: window.localStorage.getItem("token"),
             count: 50,
           },
-        })
-        .then((result) => {
-          if (!result.data === false) {
-            setUserHistory(result.data);
-          }
-        });
+        }
+      );
+      if (!userResult.data === false) {
+        setUserHistory(userResult.data);
+      }
     }
   };
 
@@ -50,8 +47,8 @@ export const GameHistoryProvider: React.FC<PropsWithChildren> = ({
     setBetList(result.data.sort((a: any, b: any) => b.amount - a.amount));
   };
 
-  const addNewHistory = (data: GameInfo) => {
-    getInitGameHistory();
+  const addNewHistory = async (data: GameInfo) => {
+    await getInitGameHistory();
     updateBalance();
   };
 

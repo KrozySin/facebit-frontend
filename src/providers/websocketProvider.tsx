@@ -51,7 +51,7 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
         },
       });
 
-      socket.current.on("message", (msg) => {
+      socket.current.on("message", async (msg) => {
         if (msg.msgType === "ongame") {
           if (isLive.current === false) {
             timer.current = msg.data.time;
@@ -67,8 +67,9 @@ export const WebSocketProvider: React.FC<PropsWithChildren> = ({
           setTimeout(() => {
             setRate(0);
             clearBet();
+            setStatus("starting");
           }, 3000);
-          addNewHistory({
+          await addNewHistory({
             id: msg.data.id,
             bust: msg.data.rate,
             status: "ended",

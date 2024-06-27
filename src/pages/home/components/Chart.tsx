@@ -37,10 +37,10 @@ const Chart = ({ className }: Props) => {
   };
 
   useEffect(() => {
-    if (status === "ended") {
-      setLaunched(false);
-    } else {
+    if (status === "ongame") {
       setLaunched(true);
+    } else {
+      setLaunched(false);
     }
   }, [status]);
 

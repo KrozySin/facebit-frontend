@@ -3,7 +3,7 @@ import { BetInfo, GameInfo } from "../const/interfaces";
 
 export interface GameHistoryContextValue {
   history: GameInfo[];
-  addNewHistory: (data: GameInfo) => void;
+  addNewHistory: (data: GameInfo) => Promise<void>;
   betList: BetInfo[];
   userHistory: BetInfo[];
   addNewBet: (data: BetInfo) => void;
